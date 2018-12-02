@@ -34,7 +34,7 @@ typedef struct Course {
 
 typedef struct TempList
 {
-	char string[50];
-	struct TempList * next;
+    char string[50];
+    struct TempList * next;
 } TempList;
 #endif 
