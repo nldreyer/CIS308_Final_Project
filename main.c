@@ -68,11 +68,24 @@ int main(void) {
     }
     } while(signed_in == 0);
 
-    if(isTeacher){
+    /*if(isTeacher == 1){
 	Teacher * teacher = malloc(sizeof(Teacher));
-    }
+	char buffer[50];
+	int i = 1;
+	int count = 0;
+	char **ptr;
+	ptr = malloc(sizeof(char*) * i);
+	while(fscanf(fpc, "%s", buffer) != EOF){
+	    if(i == count){
+		i *= 2;
+		ptr = malloc(sizeof(char*) * i);
+	    }
+	    ptr[count] = buffer;
+	    count++;
+	}
+    }*/
 
-    //mvaddstr(14, 33, id_string);
+    printf("%d", isTeacher);
     mvaddstr(15, 33, id_check);
     mvaddstr(16, 33, firstName);
     mvaddstr(17, 33, lastName);

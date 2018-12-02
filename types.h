@@ -32,14 +32,9 @@ typedef struct Course {
     char students[1][30];
 } Course;
 
-typedef struct LinkedList
+typedef struct TempList
 {
-	enum{Integer, Character, Float} type;
-	union{
-	int i;
-	char c;
-	float f;
-	}value;
-	struct LinkedList * next;
-}LinkedList;
+	char string[50];
+	struct TempList * next;
+} TempList;
 #endif 
