@@ -32,9 +32,11 @@ int main(void) {
     FILE *fpc = fopen("classList.txt", "r");
     char id_string[6];
     int signed_in = 0;
+    int isTeacher = 0;
     char id_check[6];
     char firstName[30];
     char lastName[30];
+    
     do {
     for(int i = 0; i <= 4; i++){
 	id_string[i] = getch();
@@ -49,6 +51,7 @@ int main(void) {
 	while(fscanf(fpt, "%s %s %s", id_check, firstName, lastName) != EOF){
 	    if(strcmp(id_check, id_string) == 0){
 		signed_in = 1;
+		isTeacher = 1;
 		break;
 	    }
 	}
@@ -64,6 +67,11 @@ int main(void) {
 	}
     }
     } while(signed_in == 0);
+
+    if(isTeacher){
+	Teacher * teacher = malloc(sizeof(Teacher));
+    }
+
     //mvaddstr(14, 33, id_string);
     mvaddstr(15, 33, id_check);
     mvaddstr(16, 33, firstName);

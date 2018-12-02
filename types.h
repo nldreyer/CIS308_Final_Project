@@ -4,15 +4,11 @@
 typedef enum { F, D, C, B, A } grade;
 
 typedef struct Teacher {
-    int id;
-    char name[30];
     char classes[1][50];
     struct Course * course;
 } Teacher;
 
 typedef struct Student {
-    int id;
-    char name[30];
     float cum_gpa;
     struct Semester * semesterOne;
     struct Semester * semesterTwo;
@@ -25,9 +21,10 @@ typedef struct Student {
 } Student;
 
 typedef struct Semester {
-    bool enrolled;
+    int enrolled;
     char classes[1][50];
     float gpa;
+    
 } Semester;
 
 typedef struct Course {
