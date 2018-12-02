@@ -1,6 +1,6 @@
-89765  Joe Smith
-76778  Bob Doe
-32768  Tyreek Hill
-22873  John Johnhead
-28733  Derek Anderson
-37892  Austin Croll
+89765 Joe Smith
+76778 Bob Doe
+32768 Tyreek Hill
+22873 John Johnhead
+28733 Derek Anderson
+37892 Austin Croll
