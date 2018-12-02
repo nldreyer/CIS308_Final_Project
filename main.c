@@ -23,9 +23,16 @@ int main(void) {
 	screen, call refresh() to show our changes, and
 	sleep() for a few seconds to get the full screen effect  */
 
-    mvaddstr(13, 33, "Hello, world!");
+    mvaddstr(13, 33, "Enter School ID:");
     refresh();
-    sleep(3);
+    int id = 0;
+    char id_string[5];
+    for(int i = 0; i <= 4; i++){
+	id_string[i] = getch();
+    }
+    mvaddstr(14, 33, id_string);
+    refresh();
+    sleep(1e99);
 
 
     /*  Clean up after ourselves  */
