@@ -97,7 +97,7 @@ int main(void) {
 	    }
 	    tempList = tempList->next;
 	}
-	*teacher->classes = realloc(*teacher->classes, sizeof * teacher->classes * count);
+	teacher->classes = realloc(teacher->classes, sizeof(teacher->classes) * count);
 	int position = 0;
 	while(list->next != NULL){
 	    char * curClass[30];
@@ -117,6 +117,17 @@ int main(void) {
     }
     else{
 	Student * student = malloc(sizeof(Student));
+	TempList * tempList = malloc(sizeof(TempList));
+	TempList * list = tempList;
+	char buffer[50];
+	while(fscanf(fpc, "%s", buffer) != EOF){
+	    if(strlen(buffer) != 5){
+		tempList->next = malloc(sizeof(TempList));
+	        strcpy(tempList->string, buffer);
+	        tempList = tempList->next;
+	    }
+	}
+	fclose(fpc);
 	
     }
 
