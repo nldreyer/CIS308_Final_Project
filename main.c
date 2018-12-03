@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <unistd.h>                  /*  for sleep()  */
 #include <curses.h>
+#include <string.h>
 
 #include "types.h"
 
@@ -74,20 +75,54 @@ int main(void) {
 	TempList * tempList = malloc(sizeof(TempList));
 	TempList * list = tempList;
 	while(fscanf(fpc, "%s", buffer) != EOF){
-	    if(tempList->string == NULL){
 		strcpy(tempList->string, buffer);
+		tempList->next = malloc(sizeof(TempList));
 		tempList = tempList->next;
-	    }
 	}
 	tempList = list;
-	while(tempList != NULL){
-	    
+	int count = 0;
+	while(tempList->next != NULL){
+            char * curClass[30];
+	    if(strlen(tempList->string) != 5){
+		strcpy(curClass, tempList->string);
+	    }
+	    else if(strcmp(tempList->string, id_string) != 0){
+	        mvaddstr(10,15, "lkj");
+	        //tempList = tempList->next;
+	    }
+	    else{
+		count++;
+		mvaddstr(10,10, "asd");
+		//tempList = tempList->next;
+	    }
+	    tempList = tempList->next;
+	}
+	*teacher->classes = realloc(*teacher->classes, sizeof * teacher->classes * count);
+	int position = 0;
+	while(list->next != NULL){
+	    char * curClass[30];
+	    if(strlen(tempList->string) != 5){
+		strcpy(curClass, tempList->string);
+	    }
+	    else{
+		if(strcmp(id_string, tempList->string) == 0){
+		    strcpy(teacher->classes[position][0], curClass);
+		    position++;
+		}
+	    }
+	}
+	if(strcmp(teacher->classes[2][0], "c") == 0){
+	    mvaddstr(5, 5, "This actually works");
 	}
     }
+    else{
+	Student * student = malloc(sizeof(Student));
+	
+    }
 
-    //mvaddstr(15, 33, id_check);
-    //mvaddstr(16, 33, firstName);
-    //mvaddstr(17, 33, lastName);
+    mvaddstr(15, 33, id_check);
+    mvaddstr(16, 33, firstName);
+    mvaddstr(17, 33, lastName);
     refresh();
     sleep(1e99);
 
