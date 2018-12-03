@@ -4,7 +4,7 @@
 typedef enum { F, D, C, B, A } grade;
 
 typedef struct Teacher {
-    char classes[1][50];
+    char ** classes[1][50];
     struct Course * course;
 } Teacher;
 
@@ -22,7 +22,7 @@ typedef struct Student {
 
 typedef struct Semester {
     int enrolled;
-    char * classes[1][50];
+    char classes[1][50];
     float gpa;
     
 } Semester;

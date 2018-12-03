@@ -97,7 +97,7 @@ int main(void) {
 	    }
 	    tempList = tempList->next;
 	}
-	teacher->classes = realloc(teacher->classes, sizeof(teacher->classes) * count);
+	**teacher->classes = realloc(teacher->classes, sizeof(teacher->classes) * count);
 	int position = 0;
 	while(list->next != NULL){
 	    char * curClass[30];
