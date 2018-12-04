@@ -22,14 +22,14 @@ typedef struct Student {
 
 typedef struct Semester {
     int enrolled;
-    char classes[1][50];
+    char * classes[1];
     float gpa;
     
 } Semester;
 
 typedef struct Course {
     char name[50];
-    char students[1][30];
+    char * students[1];
 } Course;
 
 typedef struct TempList
