@@ -87,17 +87,22 @@ int main(void) {
 	fclose(fpc);
 
 	//DO NOT DELETE
-	/*erase();
-	int place = 30;
-	char * choice = strtok(buffer, "\n");
-	while(choice != NULL){
-	    mvaddstr(place++, 15, choice);
-	    choice = strtok(NULL, "\n");
-	}*/
+	erase();
+	int height = 4;
+	mvaddstr(height++, 33, "Kansas State University");
+	mvaddstr(height, 33, strcat(strcat(firstName, " "), lastName));
+	height += 2;
+	char * class = strtok(buffer, "\n");
+	while(class != NULL){
+	    mvaddstr(height++, 33, class);
+	    class = strtok(NULL, "\n");
+	}
     }
     else{
 	FILE *fpg = fopen("grades.txt", "r");
 	Student * student = malloc(sizeof(Student));
+	//student->cum_gpa = malloc(sizeof(float));
+	student->cum_gpa = 0;
 	Student * tempStudent = student;
 	long lSize;
 	char * buffer;
@@ -118,12 +123,13 @@ int main(void) {
 	int firstSemester = 1;
 	int classCount = 0;
 	int studentEnd = 0;
-	int height = 5;
+	int height = 4;
 	while(line != NULL){
 	    if(strlen(line) == 5){
 		if(strcmp(line, id_string) == 0){
 		    foundStudent = 1;
 		    erase();
+		    mvaddstr(height++, 33, "Kansas State University");
 		    mvaddstr(height, 33, strcat(strcat(firstName , " "), lastName));
 		    height += 2;
 		}
@@ -132,7 +138,7 @@ int main(void) {
 		    break;
 		}
 	    }
-	    else if(strlen(line) == 4){
+	    else if(strlen(line) == 4 && !studentEnd){
 		if(!firstSemester){
 		    student->semester->next = malloc(sizeof(Semester));
 		    student->semester = student->semester->next;
@@ -140,7 +146,9 @@ int main(void) {
 		student->semester->classes = malloc(sizeof(char *));
                 student->semester->enrolled = 1;
                 strcpy(student->semester->semester, line);
-		mvaddstr(height++, 33, student->semester->semester);
+		if(foundStudent){
+		    mvaddstr(height++, 33, student->semester->semester);
+		}
 		//classCount = 0;
 	    }
 	    else{
@@ -149,10 +157,18 @@ int main(void) {
                     student->semester->classes = realloc(student->semester->classes, sizeof(char *) * (classCount+1));
 		    student->semester->classes[classCount] = malloc(sizeof(char *) * 50);
 		    strcpy(student->semester->classes[classCount], line);
-		    mvaddstr(height++, 33, line);
+		    if(foundStudent){
+		        mvaddstr(height++, 33, line);
+			student->cum_gpa += (grade)line[0];
+			//mvaddstr(5, 33, strcat());
+		    }
 		    classCount++;
 		}
 	    }
+	    student->cum_gpa = student->cum_gpa/(classCount + 1);
+	    char * buffer;
+	    gcvt(student->cum_gpa, 3, buffer);
+	    //mvaddstr(5, 33, strcat(strcat(firstName, " Cum GPA: "), buffer));
 	    line = strtok(NULL, "\n");
 	}
 	//student->semester = tempStudent->semester;
