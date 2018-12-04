@@ -34,7 +34,7 @@ int main(void) {
     int signed_in = 0;
     int isTeacher = 0;
     char id_check[6];
-    char firstName[30];
+    char firstName[50];
     char lastName[30];
     
     do {
@@ -122,6 +122,7 @@ int main(void) {
 	int foundStudent = 0;
 	int firstSemester = 1;
 	int classCount = 0;
+	int studentClasses = 0;
 	int studentEnd = 0;
 	int height = 4;
 	while(line != NULL){
@@ -149,28 +150,46 @@ int main(void) {
 		if(foundStudent){
 		    mvaddstr(height++, 33, student->semester->semester);
 		}
-		//classCount = 0;
 	    }
 	    else{
 		if(strcmp(line, "\n") != 0 && !studentEnd){
-		    //if(classCount == 1 || classCount == 2 || classCount == 4 || classCount == 8){
                     student->semester->classes = realloc(student->semester->classes, sizeof(char *) * (classCount+1));
 		    student->semester->classes[classCount] = malloc(sizeof(char *) * 50);
 		    strcpy(student->semester->classes[classCount], line);
 		    if(foundStudent){
 		        mvaddstr(height++, 33, line);
-			student->cum_gpa += (grade)line[0];
-			//mvaddstr(5, 33, strcat());
+			grade temp = line[0];
+			switch(line[0]){
+			    case 'A':
+				student->cum_gpa += 4;
+		            break;
+			    case 'B':
+				student->cum_gpa += 3;
+			    break;
+			    case 'C':
+				student->cum_gpa += 2;
+			    break;
+			    case 'D':
+				student->cum_gpa += 1;
+			    break;
+			}
+			//student->cum_gpa += temp;
+			//char bufferd[10];
+			//sprintf(bufferd, "%d", (grade)line[0]);
+			//mvaddstr(height, 50, bufferd);
+			studentClasses++;
 		    }
 		    classCount++;
 		}
 	    }
-	    student->cum_gpa = student->cum_gpa/(classCount + 1);
-	    char * buffer;
-	    gcvt(student->cum_gpa, 3, buffer);
-	    //mvaddstr(5, 33, strcat(strcat(firstName, " Cum GPA: "), buffer));
-	    line = strtok(NULL, "\n");
-	}
+		line = strtok(NULL, "\n");
+	    }
+	    student->cum_gpa = student->cum_gpa/(studentClasses);
+	    //char buffers[5];
+	    sprintf(buffer, "%.2f", student->cum_gpa);
+	    //sprintf(buffers, "%d", studentClasses);
+	    //mvaddstr(1, 33, buffers);
+	    mvaddstr(5, 33, strcat(strcat(firstName, " CUM GPA: "), buffer));
 	//student->semester = tempStudent->semester;
 	/*for(int i = 0; i <= 1; i++){
 	    mvaddstr(i + 20,33,student->semester->classes[i]);
