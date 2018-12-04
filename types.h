@@ -10,21 +10,14 @@ typedef struct Teacher {
 
 typedef struct Student {
     float cum_gpa;
-    struct Semester * semesterOne;
-    struct Semester * semesterTwo;
-    struct Semester * semesterThree;
-    struct Semester * semesterFour;
-    struct Semester * semesterFive;
-    struct Semester * semesterSix;
-    struct Semester * semesterSeven;
-    struct Semester * semesterEight;
+    struct Semester * semester;
 } Student;
 
 typedef struct Semester {
     int enrolled;
     char * classes[1];
     float gpa;
-    
+    struct Semester * next;
 } Semester;
 
 typedef struct Course {
@@ -32,9 +25,4 @@ typedef struct Course {
     char * students[1];
 } Course;
 
-typedef struct TempList
-{
-    char * string[50];
-    struct TempList * next;
-} TempList;
 #endif 
