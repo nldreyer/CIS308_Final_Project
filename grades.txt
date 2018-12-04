@@ -40,40 +40,40 @@ A Chemistry
 
 76778
 FA18
-A class
-A class
-A class
+C MicroCompSysDesign
+B DigitalElectronics
+A OpSysI
 
 SP18
-A class
-A class
-A class
+A CompNetworking
+B SeniorDesExp
+B CircTheoryII
 
 FA17
-A class
-A class
-A class
+C LinearSys
+A WritCom
+B CircTheoryI
 
 SP17
-A class
-A class
-A class
+B Electronics
+C ApplSciComp
+B SoftArchDes
 
 FA16
-A class
-A class
-A class
+A MacroEcon
+A Stat
+B CalcIII
 
 SP16
-A class
-A class
-A class
+A DiffEQ
+A DesDigSys
+A EPII
 
 FA15
-A class
-A class
-A class
+A IntroCompEng
+A ProgFund
+C EPI
 
 SP15
-A class
-A class
+A CalcII
+A Chemistry
