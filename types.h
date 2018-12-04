@@ -15,6 +15,7 @@ typedef struct Student {
 
 typedef struct Semester {
     int enrolled;
+    char * semester;
     char * classes[1];
     float gpa;
     struct Semester * next;

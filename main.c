@@ -126,15 +126,21 @@ int main(void) {
 		}
 	    }
 	    else if(strlen(line) == 4){
-		if(firstSemester){
-		    student->semester->enrolled = 1;
-		    if(classCount == ){
-
-		    }
+		if(!firstSemester){
+		    student->semester->next = malloc(sizeof(Semester));
+		    student->semester = student->semester->next;
 		}
+                student->semester->enrolled = 1;
+                strcpy(student->semester->semester, line);
 	    }
 	    else{
-
+		if(strcmp(line, "") != 0){
+		    if(classCount == 1 || classCount == 2 || classCount == 4 || classCount == 8){
+                        *student->semester->classes = realloc(student->semester->classes, sizeof(student->semester->classes) * 2);
+                    }
+		    classCount++;
+		    strcat(student->semester->classes, line);
+		}
 	    }
 	    line = strtok(NULL, "\n");
 	}
