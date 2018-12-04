@@ -1,11 +1,8 @@
+12345
 calculus1.txt
-12345
 calculus2.txt
-12345
 calculus3.txt
-12345
 22222
+calculus3.txt
 diffeq.txt
-22222
 matrixtheory.txt
-22222
