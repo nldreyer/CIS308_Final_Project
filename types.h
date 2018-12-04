@@ -4,7 +4,7 @@
 typedef enum { F, D, C, B, A } grade;
 
 typedef struct Teacher {
-    char classes[1][50];
+    char * classes[1];
     struct Course * course;
 } Teacher;
 
@@ -34,7 +34,7 @@ typedef struct Course {
 
 typedef struct TempList
 {
-    char string[50];
+    char * string[50];
     struct TempList * next;
 } TempList;
 #endif 
