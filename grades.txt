@@ -1,42 +1,42 @@
 89765
 FA18
-A Calculus 3
-B Circ Thry 1
+A DigElectron3
+B SnrDesign
 A Statistics
 
 SP18
-A Calculus 2
-B EPI
+A CmpNetwrk2
+B CmpDsgnLab
+
 
 FA17
-A class
-A class
-A class
+B writCom
+A CompDesign
+C Electro
 
 SP17
-A class
-A class
-A class
+A DiscreteMath
+B ElectronII
+C CircThryII
 
 FA16
-A class
-A class
-A class
+A CircThryI
+A ElectronI
+A MicroControl
 
 SP16
-A class
-A class
-A class
+A CalcIII
+B EPII
 
 FA15
-A class
-A class
-A class
+A CalcII
+C EPI
+C IntroEE
 
 SP15
-A class
-A class
-A class
+A CalcI
+A IntroECE
+A Chemistry
 
 76778
 FA18
@@ -77,168 +77,3 @@ A class
 SP15
 A class
 A class
-A class
-
-32768
-FA18
-A class
-A class
-A class
-
-SP18
-A class
-A class
-A class
-
-FA17
-A class
-A class
-A class
-
-SP17
-A class
-A class
-A class
-
-FA16
-A class
-A class
-A class
-
-SP16
-A class
-A class
-A class
-
-FA15
-A class
-A class
-A class
-
-SP15
-A class
-A class
-A class
-
-22873
-FA18
-A class
-A class
-A class
-
-SP18
-A class
-A class
-A class
-
-FA17
-A class
-A class
-A class
-
-SP17
-A class
-A class
-A class
-
-FA16
-A class
-A class
-A class
-
-SP16
-A class
-A class
-A class
-
-FA15
-A class
-A class
-A class
-
-SP15
-A class
-A class
-A class
-
-28733
-FA18
-A class
-A class
-A class
-
-SP18
-A class
-A class
-A class
-
-FA17
-A class
-A class
-A class
-
-SP17
-A class
-A class
-A class
-
-FA16
-A class
-A class
-A class
-
-SP16
-A class
-A class
-A class
-
-FA15
-A class
-A class
-A class
-
-SP15
-A class
-A class
-A class
-
-37892
-FA18
-A class
-A class
-A class
-
-SP18
-A class
-A class
-A class
-
-FA17
-A class
-A class
-A class
-
-SP17
-A class
-A class
-A class
-
-FA16
-A class
-A class
-A class
-
-SP16
-A class
-A class
-A class
-
-FA15
-D class
-D class
-D class
-
-SP15
-D class
-D class
-D class
