@@ -86,8 +86,8 @@ int main(void) {
 	}
 	fclose(fpc);
 
-	/*DO NOT DELETE
-	erase();
+	//DO NOT DELETE
+	/*erase();
 	int place = 30;
 	char * choice = strtok(buffer, "\n");
 	while(choice != NULL){
@@ -117,12 +117,18 @@ int main(void) {
 	int foundStudent = 0;
 	int firstSemester = 1;
 	int classCount = 0;
+	int studentEnd = 0;
+	int height = 5;
 	while(line != NULL){
 	    if(strlen(line) == 5){
 		if(strcmp(line, id_string) == 0){
 		    foundStudent = 1;
+		    erase();
+		    mvaddstr(height, 33, strcat(strcat(firstName , " "), lastName));
+		    height += 2;
 		}
 		else if(foundStudent == 1){
+		    studentEnd = 1;
 		    break;
 		}
 	    }
@@ -131,22 +137,28 @@ int main(void) {
 		    student->semester->next = malloc(sizeof(Semester));
 		    student->semester = student->semester->next;
 		}
+		student->semester->classes = malloc(sizeof(char *));
                 student->semester->enrolled = 1;
                 strcpy(student->semester->semester, line);
+		mvaddstr(height++, 33, student->semester->semester);
+		//classCount = 0;
 	    }
 	    else{
-		if(strcmp(line, "") != 0){
-		    if(classCount == 1 || classCount == 2 || classCount == 4 || classCount == 8){
-                        *student->semester->classes = realloc(student->semester->classes, sizeof(student->semester->classes) * 2);
-                    }
+		if(strcmp(line, "\n") != 0 && !studentEnd){
+		    //if(classCount == 1 || classCount == 2 || classCount == 4 || classCount == 8){
+                    student->semester->classes = realloc(student->semester->classes, sizeof(char *) * (classCount+1));
+		    student->semester->classes[classCount] = malloc(sizeof(char *) * 50);
+		    strcpy(student->semester->classes[classCount], line);
+		    mvaddstr(height++, 33, line);
 		    classCount++;
-		    //strcat(*student->semester->classes, line);
 		}
 	    }
 	    line = strtok(NULL, "\n");
 	}
-	student->semester = tempStudent->semester;
-	//mvaddstr(19,33,student->semester->classes);
+	//student->semester = tempStudent->semester;
+	/*for(int i = 0; i <= 1; i++){
+	    mvaddstr(i + 20,33,student->semester->classes[i]);
+	}*/
     }
 
 	//TempList * tempList = malloc(sizeof(TempList));
@@ -175,9 +187,9 @@ int main(void) {
 	}
 	mvaddstr(2,2,teacher->classes[1]);*/
     //mvaddstr(19, 33, student->semesterStart->classes);
-    mvaddstr(15, 33, id_string);
-    mvaddstr(16, 33, firstName);
-    mvaddstr(17, 33, lastName);
+    //mvaddstr(15, 33, id_string);
+    //mvaddstr(16, 33, firstName);
+    //mvaddstr(17, 33, lastName);
     refresh();
     sleep(60);
 
