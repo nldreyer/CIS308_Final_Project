@@ -66,11 +66,11 @@ int main(void) {
     }
     } while(signed_in == 0);
 
-    *id_check = *id_string;
+    strcpy(id_check, id_string);
 	
     if(isTeacher == 1){
 	FILE *fpc = fopen(strcat(id_string, ".txt"), "r");
-	*id_string = *id_check;
+	//strcpy(id_string, id_check);
 	Teacher * teacher = malloc(sizeof(Teacher));
 	long lSize;
 	char * buffer;
@@ -98,6 +98,7 @@ int main(void) {
     else{
 	FILE *fpg = fopen("grades.txt", "r");
 	Student * student = malloc(sizeof(Student));
+	Student * tempStudent = student;
 	long lSize;
 	char * buffer;
 
@@ -139,11 +140,13 @@ int main(void) {
                         *student->semester->classes = realloc(student->semester->classes, sizeof(student->semester->classes) * 2);
                     }
 		    classCount++;
-		    strcat(student->semester->classes, line);
+		    //strcat(*student->semester->classes, line);
 		}
 	    }
 	    line = strtok(NULL, "\n");
 	}
+	student->semester = tempStudent->semester;
+	//mvaddstr(19,33,student->semester->classes);
     }
 
 	//TempList * tempList = malloc(sizeof(TempList));
@@ -171,7 +174,7 @@ int main(void) {
 	    list = list->next;
 	}
 	mvaddstr(2,2,teacher->classes[1]);*/
-   
+    //mvaddstr(19, 33, student->semesterStart->classes);
     mvaddstr(15, 33, id_string);
     mvaddstr(16, 33, firstName);
     mvaddstr(17, 33, lastName);
